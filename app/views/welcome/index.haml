@@ -1,0 +1,32 @@
+- content_for(:title) do
+  Foreign Exchange Calculator
+  
+- content_for(:content) do
+  = form_tag result_path, method: :get do
+    %ul
+      %li
+        = label_tag 'Date'
+        = date_field_tag :date, nil, placeholder: 'Select date'
+        
+      %li
+        = label_tag 'Amount'
+        = number_field_tag :amount, 1, min: 1
+        
+      %li
+        = label_tag 'From'
+        = select_tag :from_currency, options_for_select(@currencies, 'EUR'), include_blank: false
+  
+      %li
+        = label_tag 'To'
+        = select_tag :to_currency, options_for_select(@currencies, 'GBP'), include_blank: false
+  
+      %li
+        %p
+        = submit_tag 'Calculate'
+  
+  :javascript
+    $('#date').datepicker();
+
+    $(document).ready(function() {
+      $('#ui-datepicker-div').hide();
+    });

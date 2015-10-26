@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Foreign Exchange Calculator</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    '//ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/base/jquery-ui.css' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js'%>
+  <%= csrf_meta_tags %>
+  <link rel="shortcut icon" href="/images/favicon.ico">
+</head>
+<body>
+
+  <header>
+  <div id='header 'class='content'>
+    <h1><%= yield :title %></h1>
+  </div>
+  </header>
+  <div id='container'>
+    <div id='content'>
+      <% flash.each do |type, message|%>
+        <div class='flash <%= type %>'><%= flash[:alert] %></div>
+      <% end %>
+      <%= yield :content %>
+    </div>
+  </div>
+
+</body>
+</html>
