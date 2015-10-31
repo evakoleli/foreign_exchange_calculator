@@ -14,3 +14,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'unicorn'
 gem 'exchange_rate', '1.1.6', path: '~/code/'
+
+# testing
+group :test do
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'cucumber-rails'
+  gem 'selenium-webdriver'
+  gem 'headless'
+end
